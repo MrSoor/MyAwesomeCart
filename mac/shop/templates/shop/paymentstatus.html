@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}My Awesome Cart Tracker{% endblock title %}
+{% block body %}
+
+<h1 class="text-center">Payment Status</h1>
+
+<div class="container mt-2">
+    
+    {% for msg in messages %}
+    <div class="alert alert-{{ msg.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ msg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+
+<div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+<div class="alert-success" role="alert">
+    PAYMENT STATUS
+    </div>
+    <div class="container mt-3">
+
+        
+        <div class="col my-4">
+
+            <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+            {% if response.RESPCODE =='01' %}
+            ORDER SUCCESS
+            <br>
+
+            {% else %}
+            <h2>ORDER FAILURE</h2>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+{% endblock body %}

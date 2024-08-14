@@ -1,0 +1,8 @@
+python manage.py tailwind start
+
+{% load static tailwind_tags %}
+
+    {% tailwind_css %}
+
+
+python -m pip install 'django-tailwind[reload]'
