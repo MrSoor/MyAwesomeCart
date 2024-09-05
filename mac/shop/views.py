@@ -88,8 +88,8 @@ def tracker(request):
 
 def productView(request, myid):
     # Fetch the product using the id
-    product = product.objects.filter(id=myid)
-    return render(request, 'shop/prodView.html', {'product':product[0]})
+    Product = product.objects.filter(id=myid)
+    return render(request, 'shop/productview.html', {'product':Product[0]})
 
 def checkout(request):
     if request.method=="POST":
