@@ -13,29 +13,31 @@
     <h3>Contact Us</h3>
  
     <form action="/shop/contact/" method="post">{% csrf_token %}
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
-      </div>
-
       <div class="form-group">
-        <label for="name">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
       </div>
-
+  
       <div class="form-group">
-        <label for="name">Phone</label>
-        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
       </div>
-
-
+  
       <div class="form-group">
-        <label for="desc" class="form-label">How Many Help You</label>
-        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+          <label for="phone">Phone</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number" pattern="^\d{10}$" required maxlength="10" minlength="10" title="Please enter exactly 10 digits.">
+          <small class="form-text text-muted">Please enter a 10-digit phone number.</small>
       </div>
-
-      <button type="Submit" class="btn btn-success">Submit</button>
-    </form>
+  
+      <div class="form-group">
+          <label for="desc" class="form-label">How Can We Help You?</label>
+          <textarea class="form-control" id="desc" name="desc" rows="3" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  
+  
 
 </div>
 

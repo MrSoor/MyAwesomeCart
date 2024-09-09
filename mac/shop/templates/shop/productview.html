@@ -3,29 +3,31 @@
 {% block body %}
 
 <title>Product View</title>
-<link rel="stylesheet" href="/static/blog/prodview.css">
+<link rel="stylesheet" href="/static/blog/style.css">
 
 <div class="container my-4">
-    <div class="row product-container">
+    <div class="row product-container border rounded shadow-sm p-3">
+        
         <!-- Product Image -->
         <div class="col-md-4">
-            <div class="product-image">
-                <img src="/media/{{product.image}}" alt="{{product.product_name}}" class="img-fluid">
+            <div class="product-image text-center">
+                <img src="/media/{{product.image}}" alt="{{product.product_name}}" class="img-fluid rounded">
             </div>
         </div>
 
         <!-- Product Details -->
         <div class="col-md-8 product-details">
-            <h5>{{product.product_name}}</h5>
-            <p><b>Rs. {{product.price}}</b></p>
-            <p>{{product.desc}}</p>
+            <h5 class="font-weight-bold text-primary">{{product.product_name}}</h5>
+            <p><b class="text-success">Rs. {{product.price}}</b></p>
+            <p class="text-muted">{{product.desc}}</p>
             <div class="my-3">
-                <button class="btn btn-custom btn-custom-primary mx-3">Buy Now</button>
-                <button class="btn btn-custom btn-custom-secondary mx-3">Add To Cart</button>
+                <button class="btn btn-primary btn-lg mx-2">Buy Now</button>
+                <button class="btn btn-secondary btn-lg mx-2">Add To Cart</button>
             </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}
 
