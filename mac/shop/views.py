@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.core.serializers import serialize
 from .models import product, Contact, Orders, OrdersUpdate
 from math import ceil
 import json
@@ -49,6 +50,8 @@ def about(request):
 
 
 def contact(request):
+    queryset = Contact.objects.all()
+    data = serialize('json',queryset,fields=('name','email','phone','desc'))
     thank = False
     if request.method=="POST":
         name = request.POST.get('name', '')
@@ -63,6 +66,7 @@ def contact(request):
             messages.success (request, "Your message has been successfully sent by MyAwesome Cart Helps")
             thank = True
     return render(request, 'shop/contact.html', {'thank': thank})
+    # return HttpResponse(data,content_type="application/json")
 
 
 def tracker(request):
@@ -92,6 +96,8 @@ def productView(request, myid):
     return render(request, 'shop/productview.html', {'product':Product[0]})
 
 def checkout(request):
+    queryset = Orders.objects.all()
+    data = serialize('json',queryset,fields=('order_id','items_json','name','email','address','city','state', 'zip_code','phone'))
     if request.method=="POST":
         items_json = request.POST.get('itemsJson', '')
         name = request.POST.get('name', '')
@@ -109,6 +115,8 @@ def checkout(request):
         thank = True
         id = order.order_id
         # return render(request, 'shop/checkout.html', {'thank':thank, 'id': id})
+        # return HttpResponse(data,content_type="application/json")
+
         # Request paytm to transfer the amount to your account after payment by user
         param_disc = {
              
