@@ -162,6 +162,5 @@ def handlerequest(request):
             post1.save()
         print('order was not successful because' + response_dict
               ['RESPMSG'])
-    return render(request, 'shop/paymentstatus.html',{'response':
-        response_dict
+    return render(request, 'shop/paymentstatus.html',{'response':response_dict
      })
